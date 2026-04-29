@@ -1,0 +1,45 @@
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+
+const PORT = 3000;
+const ROOT = path.join(__dirname, 'Profilesite');
+
+const MIME_TYPES = {
+    '.html': 'text/html',
+    '.js': 'text/javascript',
+    '.css': 'text/css',
+    '.json': 'application/json',
+    '.png': 'image/png',
+    '.jpg': 'image/jpg',
+    '.gif': 'image/gif',
+    '.svg': 'image/svg+xml',
+    '.pdf': 'application/pdf',
+};
+
+const server = http.createServer((req, res) => {
+    let filePath = path.join(ROOT, req.url === '/' ? 'index.html' : req.url);
+    const extname = String(path.extname(filePath)).toLowerCase();
+    const contentType = MIME_TYPES[extname] || 'application/octet-stream';
+
+    fs.readFile(filePath, (error, content) => {
+        if (error) {
+            if (error.code === 'ENOENT') {
+                res.writeHead(404);
+                res.end('404 File Not Found');
+            } else {
+                res.writeHead(500);
+                res.end(`500 Internal Server Error: ${error.code}`);
+            }
+        } else {
+            res.writeHead(200, { 'Content-Type': contentType });
+            res.end(content, 'utf-8');
+        }
+    });
+});
+
+server.listen(PORT, () => {
+    console.log(`\x1b[32m✔ Server is running at http://localhost:${PORT}\x1b[0m`);
+    console.log(`\x1b[36mℹ Serving files from: ${ROOT}\x1b[0m`);
+    console.log('Press Ctrl + C to stop.');
+});

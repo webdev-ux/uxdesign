@@ -1,76 +1,25 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Theme Toggle Logic
-  const themeToggle = document.getElementById('theme-toggle');
-  const htmlElement = document.documentElement;
-  
-  // Check local storage for theme
-  const savedTheme = localStorage.getItem('theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  
-  if (savedTheme) {
-    htmlElement.setAttribute('data-theme', savedTheme);
-  } else if (prefersDark) {
-    htmlElement.setAttribute('data-theme', 'dark');
-  } else {
-    htmlElement.setAttribute('data-theme', 'light');
-  }
+const fs = require('fs');
+const path = 'c:/Users/devlp/OneDrive/Desktop/antigravity/profileSite/Profilesite/index.html';
+let content = fs.readFileSync(path, 'utf8');
 
-  // Set the correct icon on load
-  updateThemeIcon();
+// Replace titles with links
+content = content.replace(
+  '<h3 class="mt-3 text-2xl md:text-3xl">Reducing commuter friction in a real-time transit product</h3>',
+  '<a href="Casestudy/sport.html" class="hover:text-accent transition-colors"><h3 class="mt-3 text-2xl md:text-3xl">Reducing commuter friction in a real-time transit product</h3></a>'
+);
 
-  themeToggle.addEventListener('click', () => {
-    const currentTheme = htmlElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    htmlElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeIcon();
-  });
+content = content.replace(
+  '<h3 class="mt-3 text-2xl md:text-3xl">Lowering behavioral barriers in digital hearing care</h3>',
+  '<a href="Casestudy/banking.html" class="hover:text-accent transition-colors"><h3 class="mt-3 text-2xl md:text-3xl">Lowering behavioral barriers in digital hearing care</h3></a>'
+);
 
-  function updateThemeIcon() {
-    const currentTheme = htmlElement.getAttribute('data-theme');
-    const sunIcon = document.querySelector('.sun-icon');
-    const moonIcon = document.querySelector('.moon-icon');
-    
-    // Safety check just in case lucide hasn't kicked in
-    if(sunIcon && moonIcon) {
-        if (currentTheme === 'dark') {
-        sunIcon.style.display = 'block';
-        moonIcon.style.display = 'none';
-        } else {
-        sunIcon.style.display = 'none';
-        moonIcon.style.display = 'block';
-        }
-    }
-  }
+content = content.replace(
+  '<h3 class="mt-3 text-2xl md:text-3xl">Designing pricing tools people can decide with</h3>',
+  '<a href="Casestudy/accounting.html" class="hover:text-accent transition-colors"><h3 class="mt-3 text-2xl md:text-3xl">Designing pricing tools people can decide with</h3></a>'
+);
 
-  // Scroll Animations (Intersection Observer)
-  const reveals = document.querySelectorAll('.reveal');
+// Replace button text
+content = content.replace(/View Case Study Example/g, 'View Deep Dive');
 
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-        observer.unobserve(entry.target); // Only animate once
-      }
-    });
-  }, {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px"
-  });
-
-  reveals.forEach(reveal => {
-    revealObserver.observe(reveal);
-  });
-
-  // Navbar Scroll Effect
-  const navbar = document.querySelector('.navbar');
-  
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-});
+fs.writeFileSync(path, content, 'utf8');
+console.log('Replacements complete.');
