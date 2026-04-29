@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = 3000;
-const ROOT = path.join(__dirname, 'Profilesite');
+const ROOT = __dirname;
 
 const MIME_TYPES = {
     '.html': 'text/html',
