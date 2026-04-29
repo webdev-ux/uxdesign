@@ -1,0 +1,38 @@
+/* Dynamic Motion Design CSS */
+
+/* Smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Base class for elements that will be revealed on scroll */
+.motion-reveal,
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.32, 1), transform 0.8s cubic-bezier(0.16, 1, 0.32, 1);
+    will-change: opacity, transform;
+}
+
+/* Class added when element is in view */
+.motion-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays for children */
+.motion-stagger-1 { transition-delay: 0.1s; }
+.motion-stagger-2 { transition-delay: 0.2s; }
+.motion-stagger-3 { transition-delay: 0.3s; }
+.motion-stagger-4 { transition-delay: 0.4s; }
+
+/* Magnetic button wrapper */
+.magnetic-wrap {
+    display: inline-block;
+    position: relative;
+}
+
+.magnetic-element {
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.32, 1);
+    will-change: transform;
+}

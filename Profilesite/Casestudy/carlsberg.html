@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlsberg Group - Pricing Decision Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/case-study.css">
+</head>
+<body>
+
+    <header class="case-study-header">
+        <div class="header-left">
+            <a href="../index.html#work" class="back-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                Back to Portfolio
+            </a>
+            <h1 class="reveal">Carlsberg<span style="color:hsl(var(--muted-foreground))">.</span></h1>
+            <div class="header-metadata reveal">
+                <div class="metadata-item">
+                    <span>Role</span>
+                    <span>UX/UI Designer</span>
+                </div>
+                <div class="metadata-item">
+                    <span>Context</span>
+                    <span>Fintech-adjacent · Decision Support</span>
+                </div>
+                <div class="metadata-item">
+                    <span>Tech Stack</span>
+                    <span>Angular, .NET Core, D3.js</span>
+                </div>
+                <div class="metadata-item">
+                    <span>Period</span>
+                    <span>2019 – 2021</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-right reveal">
+            <p>Designing pricing tools people can decide with. We transformed high-stakes internal tools at Carlsberg Group, moving from data-heavy spreadsheets to outcome-focused canvases that reduced decision errors.</p>
+        </div>
+    </header>
+
+    <div class="case-study-container">
+        <div class="annotation left" style="top: 250px;">
+            <h3>Cost Decomposition</h3>
+            <p>Pricing analysts often struggle with hidden variables. We introduced a transparent cost decomposition pattern that surfaces the "Why" behind every recommendation, building analyst trust.</p>
+        </div>
+
+        <div class="annotation left" style="top: 650px;">
+            <h3>Decision Confidence</h3>
+            <p>Instead of showing raw data, the interface now groups information by "impact area," highlighting risks and opportunities in real-time as users adjust pricing levers.</p>
+        </div>
+
+        <!-- Using existing accounting image as it fits the fintech/data theme -->
+        <img src="../assets/casestudies/accounting_ui.png" alt="Carlsberg Pricing Canvas" class="mockup-image reveal">
+
+        <div class="annotation right" style="top: 150px;">
+            <h3>Progressive Disclosure</h3>
+            <p>Complex calculations are hidden behind a layered interface. Users only see the data they need for the current decision, with one-click access to the full mathematical audit trail.</p>
+        </div>
+
+        <div class="annotation right" style="top: 550px;">
+            <h3>Workflow Mapping</h3>
+            <p>By shadowing analysts in real-world scenarios, we identified the exact moments of hesitation and redesigned the flow to proactively answer their most common questions.</p>
+        </div>
+
+        <svg class="connector" style="top: 0; left: 0; width: 100%; height: 100%;" viewBox="0 0 1200 1200" preserveAspectRatio="none">
+            <path d="M 300 300 L 580 300" />
+            <circle cx="585" cy="300" r="4" />
+            <circle cx="585" cy="300" r="10" class="outer" />
+
+            <path d="M 300 700 L 580 700" />
+            <circle cx="585" cy="700" r="4" />
+            <circle cx="585" cy="700" r="10" class="outer" />
+
+            <path d="M 900 200 L 620 200" />
+            <circle cx="615" cy="200" r="4" />
+            <circle cx="615" cy="200" r="10" class="outer" />
+
+            <path d="M 900 600 L 620 600" />
+            <circle cx="615" cy="600" r="4" />
+            <circle cx="615" cy="600" r="10" class="outer" />
+        </svg>
+
+        <div class="results-grid reveal">
+            <div class="result-card">
+                <div class="result-value">↓</div>
+                <div class="result-label">Decision Errors</div>
+            </div>
+            <div class="result-card">
+                <div class="result-value">↑</div>
+                <div class="result-label">Analyst Confidence</div>
+            </div>
+            <div class="result-card">
+                <div class="result-value">Faster</div>
+                <div class="result-label">Approval Cycles</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/animations.js"></script>
+</body>
+</html>
